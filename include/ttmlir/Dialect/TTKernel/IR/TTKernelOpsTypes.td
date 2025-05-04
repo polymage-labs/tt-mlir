@@ -142,4 +142,16 @@ def TTKernel_ArgSpecAttr : TTKernel_Attr<"ArgSpec", "arg_spec"> {
   }];
 }
 
+// Temporary attribute for compile time arg index. To be replaced with
+// polyblocks_tt attribute.
+def TTKernel_CtArgIndexAttr : TTKernel_Attr<"CtArgIndex", "ct_arg_index"> {
+  let summary = "TTKernel compile time arg index attribute";
+  let description = [{
+    Provides the compile time argument index for the given SSA value.
+  }];
+
+  let parameters = (ins "int64_t":$x);
+  let assemblyFormat = " `=` $x ";
+}
+
 #endif
